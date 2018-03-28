@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'esl_academies_reviews/home'
+  root to: "esl_academies_reviews#index"
 
   devise_for :users
-  root to: "esl_academies_reviews#index"
-  # root to: "home#index"
+  # root to: "esl_academies_reviews#index"
 end
