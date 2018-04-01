@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'sign up', %q(
+feature 'user signs up', %q(
   As a prospective user
   I want to create an account
   So that I can post items and review them
@@ -21,21 +21,20 @@ scenario "User successfully creates an account" do
    click_button "Sign up"
 
    expect(page).to have_content "Welcome! You have signed up successfully."
-
+   expect(page).to have_content "Sign Out"
  end
 
  scenario 'user fails to create an account' do
-   # visit root_path
+
    visit new_user_registration_path
    click_button 'Sign up'
-   #
-   # expect(page).to have_content('2 errors prohibited this user from being saved:')
+
    expect(page).to have_content("can't be blank")
    expect(page).to_not have_content("Sign out")
  end
 
  scenario 'password confirmation does not match confirmation' do
-   # visit root_path
+
    visit new_user_registration_path
    click_button 'Sign up'
 
